@@ -10,6 +10,11 @@ const MainPage = () => {
   const router = useRouter();
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+
+  const navigateToForm = () => {
+    // Navigate to FormPage using window.location
+    window.location.href = '/create'; // Adjust path if FormPage is located differently
+  };
   
   const fetchRecords = async () => {
     try {
@@ -36,7 +41,7 @@ const MainPage = () => {
       
     }
     fetchRecords();
-    
+
   } catch (error) {
     console.log(error);
   }
@@ -87,6 +92,16 @@ const MainPage = () => {
         </div>
 
       ))}
+        <div>
+        {/* Your main page content */}
+        <button 
+        onClick={navigateToForm} 
+        className="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+        style={{ width: '200px', height: '100px' }} // Inline styles for button size
+>
+         Adaugă desert
+        </button>
+        </div>
     </div>
     </div>
   );
