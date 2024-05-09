@@ -2,6 +2,7 @@ import { deleteRecord, getRecords } from "@/utils/recordsFunctions";
 import React, { useEffect, useState } from "react";
 import Spinner from "./Spinner";
 import { useRouter } from "next/router";
+import { confirmAlert } from 'react-confirm-alert';
 
 
 
@@ -22,6 +23,7 @@ const MainPage = () => {
     }
   };
 
+
   const handleDeleteRecord = async (id) => {
     try {
       const response = await deleteRecord(id);
@@ -30,6 +32,7 @@ const MainPage = () => {
         const newData = data.filter((el) => el._id !== id);
 
         setData(newData);
+       
       }
     } catch (error) {
       console.log(error);
@@ -44,6 +47,7 @@ const MainPage = () => {
     fetchRecords();
   }, []);
 
+
   if (isLoading) return <Spinner />;
 
 
@@ -53,7 +57,7 @@ const MainPage = () => {
           <h1 style={{ fontSize: '48px' }}>Rețete pentru deserturi</h1>
     <div className="p-10 flex flex-wrap gap-4 justify-content-center">
       {data?.map((record) => (
-        <div key={record._id} className="max-w-sm bg-white border bg-pink-600 rounded-lg shadow">
+        <div key={record._id} className="max-w-sm bg-pink-600 border bg-pink-600 rounded-lg shadow">
             <a href="#">
             <img className="rounded-t-lg" src={record.imagineURL} alt="" style={{ width: '500px', height: 'auto' }} />
 
@@ -63,13 +67,20 @@ const MainPage = () => {
                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-white-200 ">{record.numeDesert}</h5>
                 </a>
                 <p className="mb-3 font-normal text-white-700 ">{record.reteta}</p>
-                <a href="#" className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                    Read more
-                    <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                    </svg>
-                </a>
+                
             </div>
+            <button
+            type="button"
+            onClick={() => handleEditRecord(record._id)}
+            class="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+            UPDATE
+          </button>
+          <button
+            type="button"
+            onClick={() => handleDeleteRecord(record._id)}
+            class="mb-5 text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+            DELETE
+          </button>
         </div>
 
       ))}
