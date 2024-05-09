@@ -2,7 +2,7 @@ import { deleteRecord, getRecords } from "@/utils/recordsFunctions";
 import React, { useEffect, useState } from "react";
 import Spinner from "./Spinner";
 import { useRouter } from "next/router";
-import { confirmAlert } from 'react-confirm-alert';
+
 
 
 
@@ -25,19 +25,22 @@ const MainPage = () => {
 
 
   const handleDeleteRecord = async (id) => {
-    try {
-      const response = await deleteRecord(id);
+  try {
+    const response = await deleteRecord(id);
 
-      if (response?.acknowledged) {
-        const newData = data.filter((el) => el._id !== id);
+    if (response?.acknowledged) {
+      const newData = data.filter((el) => el._id !== id);
 
-        setData(newData);
-       
-      }
-    } catch (error) {
-      console.log(error);
+      setData(newData);
+      fetchRecords();
+      
     }
-  };
+    fetchRecords();
+    
+  } catch (error) {
+    console.log(error);
+  }
+};
 
   const handleEditRecord = (id) => {
     router.push(`/edit?id=${id}`);
@@ -53,7 +56,7 @@ const MainPage = () => {
 
   
   return (
-    <div class="grid place-items-center">
+    <div className="grid place-items-center">
           <h1 style={{ fontSize: '48px' }}>Rețete pentru deserturi</h1>
     <div className="p-10 flex flex-wrap gap-4 justify-content-center">
       {data?.map((record) => (
@@ -72,13 +75,13 @@ const MainPage = () => {
             <button
             type="button"
             onClick={() => handleEditRecord(record._id)}
-            class="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+            className="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
             UPDATE
           </button>
           <button
             type="button"
             onClick={() => handleDeleteRecord(record._id)}
-            class="mb-5 text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+            className="mb-5 text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
             DELETE
           </button>
         </div>
