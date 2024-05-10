@@ -1,5 +1,7 @@
 Link publicare: https://project-cloud-computing-phi.vercel.app/
+
 Link video prezentare: https://youtu.be/yBLmhcuViNo
+
 Link GitHub: https://github.com/AnaMaria1243/Project-CloudComputing
 
 
@@ -47,17 +49,19 @@ export const sendNotFound = (res, message) => {
     );
 };
 
-	5. Capturi ecran aplicație 
+ 	5.Capturi de ecran
 Colecția de rețete extrasă din baza de date:
 ![Colecția de rețete extrasă din baza de date](https://github.com/AnaMaria1243/Project-CloudComputing/assets/114759453/97e21662-3c03-49d9-b091-a0dea2d7aa64)
-![Butoanele de adăugare rețetă, editare rețetă și ștergere](https://github.com/AnaMaria1243/Project-CloudComputing/assets/114759453/4e3f778b-5521-4c73-852e-2c77e592c44f
+![Butoanele de adăugare rețetă, editare rețetă și ștergere](https://github.com/AnaMaria1243/Project-CloudComputing/assets/114759453/4e3f778b-5521-4c73-852e-2c77e592c44f)
 ![Formularul de creare rețetă,](https://github.com/AnaMaria1243/Project-CloudComputing/assets/114759453/2d8700fb-f13b-45f8-bc4b-fd7c8828bc20)
 ![Formularul de editare](https://github.com/AnaMaria1243/Project-CloudComputing/assets/114759453/05dac0ce-7729-4719-84c0-5e8a55ce720c)
 
 
 
 Link publicare: https://project-cloud-computing-phi.vercel.app/
+
 Link video prezentare: https://youtu.be/yBLmhcuViNo
+
 Link GitHub: https://github.com/AnaMaria1243/Project-CloudComputing
 
 
