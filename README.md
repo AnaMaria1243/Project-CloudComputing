@@ -13,7 +13,7 @@ Link GitHub: https://github.com/AnaMaria1243/Project-CloudComputing
 
 	Aplicația pe care am dezvoltat-o este destinată rețetelor preparatelor dulci care este un tot unitar sub forma unei colecții de deserturi și își propune să redefinească experiența cărților de rețete clasice. Această aplicație oferă o experiență interactivă și captivantă utilizatorilor, permitându-le să exploreze o varietate de rețete dulci, să descopere noi tehnici de preparare și să creeze propriile lor colecții personalizate de rețete preferate. Cu un design intuitiv, aplicația facilitează accesul la inspirație culinară și încurajează pasiunea pentru deserturi.
 
-	3. Descriere tehnologii cloud folosite
+3. Descriere tehnologii cloud folosite
 
 	Tehnologiile folosite sunt:
 -	Visual Studio Code: editor de cod open-source -> JavaScript și HTML
@@ -23,7 +23,7 @@ Link GitHub: https://github.com/AnaMaria1243/Project-CloudComputing
 -	Vercel: pentru a implementa aplicația în cloud 
 -	GitHub: platformă de găzduire web pentru cod sursă
 
-	4. Flux de date: exemple de request / response și metode HTTP
+4. Flux de date: exemple de request / response și metode HTTP
 
 	Metodele HTTP folosite sunt: 
 GET: Utilizat pentru aextrage retele din baza de date
